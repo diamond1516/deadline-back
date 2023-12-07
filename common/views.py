@@ -1,7 +1,14 @@
 from django.shortcuts import render
+from . import models
 
 
 # Create your views here.
 
 def index(request):
-    return render(request, "index.html")
+    posts = models.Post.objects.all()[:2]
+    about = models.AboutLogin.objects.get(id=1)
+    context = {
+        'posts': posts,
+        'about': about
+    }
+    return render(request, "index.html", context=context)
