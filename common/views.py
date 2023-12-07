@@ -8,8 +8,8 @@ def index(request):
     offset = request.GET.get('offset', '0')
     posts = models.Post.objects.all()
     count = posts.count()
-    is_last = False if int(offset) == 0 else True
-    is_next = False if 2 + int(offset) >= count else True
+    is_last = not int(offset) == 0
+    is_next = not 2 + int(offset) >= count
     about = models.AboutLogin.objects.all().first()
     context = {
         'posts': posts[int(offset):2 + int(offset)],
