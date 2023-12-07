@@ -5,12 +5,14 @@ from . import models
 # Create your views here.
 
 def index(request):
-    limit = request.GET.get('limit', '2')
     offset = request.GET.get('offset', '0')
-    posts = models.Post.objects.all()[int(offset): int(limit) + int(offset)]
+    posts = models.Post.objects.all()
+    count = posts.count()
     about = models.AboutLogin.objects.filter(id=1)
     context = {
-        'posts': posts,
-        'about': about
+        'posts': posts[int(offset):2 + int(offset)],
+        'about': about,
+        'last': int(offset) - 2,
+        'next': int(offset) + 2
     }
     return render(request, "index.html", context=context)
