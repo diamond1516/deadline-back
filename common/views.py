@@ -7,15 +7,12 @@ from . import models
 def index(request):
     offset = request.GET.get('offset', '0')
     posts = models.Post.objects.all()
-    is_last = not int(offset) == 0
-    is_next = not 2 + int(offset) >= posts.count()
-    about = models.AboutLogin.objects.all().first()
     context = {
         'posts': posts[int(offset):2 + int(offset)],
-        'about': about,
+        'about': models.AboutLogin.objects.all().first(),
         'last': int(offset) - 2,
         'next': int(offset) + 2,
-        'is_last': is_last,
-        'is_next': is_next
+        'is_last': not int(offset) == 0,
+        'is_next': not 2 + int(offset) >= posts.count()
     }
     return render(request, "index.html", context=context)
