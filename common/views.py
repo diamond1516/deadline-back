@@ -10,7 +10,7 @@ def index(request):
     count = posts.count()
     is_last = False if int(offset) == 0 else True
     is_next = False if 2 + int(offset) >= count else True
-    about = models.AboutLogin.objects.filter(id=1)
+    about = models.AboutLogin.objects.all().first()
     context = {
         'posts': posts[int(offset):2 + int(offset)],
         'about': about,
