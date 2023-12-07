@@ -6,7 +6,7 @@ from . import models
 
 def index(request):
     posts = models.Post.objects.all()[:2]
-    about = models.AboutLogin.objects.get(id=1)
+    about = models.AboutLogin.objects.filter(id=1)
     context = {
         'posts': posts,
         'about': about

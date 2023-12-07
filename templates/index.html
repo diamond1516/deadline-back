@@ -52,28 +52,14 @@
         <div class="fix container">
             <div class="content_wrapper">
                 <section class="left_content">
-                    <article class="single_article">
-                        <img src="{% static 'image/article-image.png' %}" alt="">
-                        <h2>Duis aute irure dolor in henderit in voluptat</h2>
-                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipop ex ea
-                            commo doconsequat,
-                            sunt in culpa qui officia deserunt mollit anim id est laborum.
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                            pariatur...
-                        </p>
-                        <a class="continue_reading" href="#">Continue Reading</a>
-                    </article>
-                    <article class="single_article">
-                        <img src="{% static 'image/article.png' %}" alt="">
-                        <h2>Duis aute irure dolor in henderit in voluptat</h2>
-                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipop ex ea
-                            commo doconsequat,
-                            sunt in culpa qui officia deserunt mollit anim id est laborum.
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                            pariatur...
-                        </p>
-                        <a class="continue_reading" href="#">Continue Reading</a>
-                    </article>
+                    {% for post in posts %}
+                        <article class="single_article">
+                            <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                            <h2>{{ post.title }}</h2>
+                            <p>{{ post.description }}</p>
+                            <a class="continue_reading" href="#">Continue Reading</a>
+                        </article>
+                    {% endfor %}
                 </section>
                 <div class="sidebar_wrapper">
                     <aside class="single_sidebar">
