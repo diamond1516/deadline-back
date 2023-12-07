@@ -1,4 +1,6 @@
+
 <!DOCTYPE html>
+ {% load static %}
 <html lang="en">
 
 <head>
@@ -51,7 +53,7 @@
             <div class="content_wrapper">
                 <section class="left_content">
                     <article class="single_article">
-                        <img src="image/article-image.png" alt="">
+                        <img src="{% static 'image/article-image.png' %}" alt="">
                         <h2>Duis aute irure dolor in henderit in voluptat</h2>
                         <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipop ex ea
                             commo doconsequat,
@@ -62,7 +64,7 @@
                         <a class="continue_reading" href="#">Continue Reading</a>
                     </article>
                     <article class="single_article">
-                        <img src="image/article.png" alt="">
+                        <img src="{% static 'image/article.png' %}" alt="">
                         <h2>Duis aute irure dolor in henderit in voluptat</h2>
                         <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipop ex ea
                             commo doconsequat,
@@ -137,7 +139,7 @@
         </div>
     </div>
     -->
-    <script src="js/main.js"></script>
+    <script src="{% static 'js/main.js' %}"></script>
 </body>
 
 </html>
